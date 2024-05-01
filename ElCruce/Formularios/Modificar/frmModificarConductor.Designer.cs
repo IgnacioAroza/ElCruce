@@ -48,7 +48,7 @@
             // 
             // btnMoficar
             // 
-            btnMoficar.Location = new Point(145, 194);
+            btnMoficar.Location = new Point(226, 194);
             btnMoficar.Name = "btnMoficar";
             btnMoficar.Size = new Size(75, 23);
             btnMoficar.TabIndex = 0;
@@ -58,7 +58,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(301, 194);
+            btnSalir.Location = new Point(382, 194);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 1;
@@ -73,7 +73,7 @@
             dgvChoferes.Name = "dgvChoferes";
             dgvChoferes.RowTemplate.Height = 25;
             dgvChoferes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvChoferes.Size = new Size(681, 164);
+            dgvChoferes.Size = new Size(719, 164);
             dgvChoferes.TabIndex = 2;
             // 
             // label1
@@ -176,7 +176,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(759, 450);
             Controls.Add(txtAcoplado);
             Controls.Add(txtChasis);
             Controls.Add(txtPatente);

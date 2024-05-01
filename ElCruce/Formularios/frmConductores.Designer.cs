@@ -43,7 +43,7 @@
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(48, 25);
+            btnNuevo.Location = new Point(235, 27);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(109, 25);
             btnNuevo.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(48, 73);
+            btnModificar.Location = new Point(235, 75);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(109, 25);
             btnModificar.TabIndex = 1;
@@ -63,7 +63,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(48, 120);
+            btnEliminar.Location = new Point(235, 122);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(109, 25);
             btnEliminar.TabIndex = 2;
@@ -73,7 +73,7 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(353, 185);
+            btnActualizar.Location = new Point(493, 191);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(109, 25);
             btnActualizar.TabIndex = 3;
@@ -83,7 +83,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(353, 413);
+            btnSalir.Location = new Point(493, 413);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(109, 25);
             btnSalir.TabIndex = 4;
@@ -94,16 +94,16 @@
             // dgvConductores
             // 
             dgvConductores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConductores.Location = new Point(12, 225);
+            dgvConductores.Location = new Point(12, 222);
             dgvConductores.Name = "dgvConductores";
             dgvConductores.RowTemplate.Height = 25;
             dgvConductores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConductores.Size = new Size(776, 163);
+            dgvConductores.Size = new Size(1041, 163);
             dgvConductores.TabIndex = 5;
             // 
             // btnBuscarNombre
             // 
-            btnBuscarNombre.Location = new Point(437, 35);
+            btnBuscarNombre.Location = new Point(624, 37);
             btnBuscarNombre.Name = "btnBuscarNombre";
             btnBuscarNombre.Size = new Size(128, 27);
             btnBuscarNombre.TabIndex = 6;
@@ -113,7 +113,7 @@
             // 
             // btnBuscarApellido
             // 
-            btnBuscarApellido.Location = new Point(437, 102);
+            btnBuscarApellido.Location = new Point(624, 104);
             btnBuscarApellido.Name = "btnBuscarApellido";
             btnBuscarApellido.Size = new Size(128, 25);
             btnBuscarApellido.TabIndex = 7;
@@ -123,14 +123,14 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(583, 38);
+            txtNombre.Location = new Point(770, 40);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(158, 23);
             txtNombre.TabIndex = 8;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(583, 102);
+            txtApellido.Location = new Point(770, 104);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(158, 23);
             txtApellido.TabIndex = 9;
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1073, 450);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Controls.Add(btnBuscarApellido);

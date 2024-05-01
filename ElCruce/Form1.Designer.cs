@@ -34,6 +34,9 @@
             viajesToolStripMenuItem = new ToolStripMenuItem();
             valorCombustibleToolStripMenuItem = new ToolStripMenuItem();
             dgvViajes = new DataGridView();
+            txtNroLiq = new TextBox();
+            btnNroLiq = new Button();
+            btnBuscarTodo = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvViajes).BeginInit();
             SuspendLayout();
@@ -43,7 +46,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { dueñosCamionToolStripMenuItem, choferesToolStripMenuItem, viajesToolStripMenuItem, valorCombustibleToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1265, 24);
+            menuStrip1.Size = new Size(1350, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -81,14 +84,44 @@
             dgvViajes.Location = new Point(12, 116);
             dgvViajes.Name = "dgvViajes";
             dgvViajes.RowTemplate.Height = 25;
-            dgvViajes.Size = new Size(1241, 225);
+            dgvViajes.Size = new Size(1326, 225);
             dgvViajes.TabIndex = 1;
+            // 
+            // txtNroLiq
+            // 
+            txtNroLiq.Location = new Point(950, 63);
+            txtNroLiq.Name = "txtNroLiq";
+            txtNroLiq.Size = new Size(156, 23);
+            txtNroLiq.TabIndex = 27;
+            // 
+            // btnNroLiq
+            // 
+            btnNroLiq.Location = new Point(791, 63);
+            btnNroLiq.Name = "btnNroLiq";
+            btnNroLiq.Size = new Size(145, 23);
+            btnNroLiq.TabIndex = 26;
+            btnNroLiq.Text = "Buscar por Nro Liq Prod";
+            btnNroLiq.UseVisualStyleBackColor = true;
+            btnNroLiq.Click += btnNroLiq_Click;
+            // 
+            // btnBuscarTodo
+            // 
+            btnBuscarTodo.Location = new Point(312, 62);
+            btnBuscarTodo.Name = "btnBuscarTodo";
+            btnBuscarTodo.Size = new Size(95, 23);
+            btnBuscarTodo.TabIndex = 28;
+            btnBuscarTodo.Text = "Buscar Todo";
+            btnBuscarTodo.UseVisualStyleBackColor = true;
+            btnBuscarTodo.Click += btnBuscarTodo_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1265, 372);
+            ClientSize = new Size(1350, 372);
+            Controls.Add(btnBuscarTodo);
+            Controls.Add(txtNroLiq);
+            Controls.Add(btnNroLiq);
             Controls.Add(dgvViajes);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -110,5 +143,8 @@
         private ToolStripMenuItem viajesToolStripMenuItem;
         private ToolStripMenuItem valorCombustibleToolStripMenuItem;
         private DataGridView dgvViajes;
+        private TextBox txtNroLiq;
+        private Button btnNroLiq;
+        private Button btnBuscarTodo;
     }
 }

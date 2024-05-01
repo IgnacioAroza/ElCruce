@@ -40,5 +40,32 @@ namespace ElCruce
             frmCombustible frmCombustible = new frmCombustible();
             frmCombustible.Show();
         }
+
+        private void btnNroLiq_Click(object sender, EventArgs e)
+        {
+            decimal valorBuscado;
+            if (!decimal.TryParse(txtNroLiq.Text, out valorBuscado))
+            {
+                MessageBox.Show("Por favor, ingrese un valor valido");
+                return;
+            }
+
+            DataTable resultado = Viajes.BuscarXLiquidoProducto(valorBuscado);
+            if (resultado != null && resultado.Rows.Count > 0)
+            {
+                dgvViajes.DataSource = resultado;
+                txtNroLiq.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron viajes para el valor de Liquido Producto buscado");
+            }
+        }
+
+        private void btnBuscarTodo_Click(object sender, EventArgs e)
+        {
+            DataTable dt = Viajes.BuscarTodo();
+            dgvViajes.DataSource = dt;
+        }
     }
 }

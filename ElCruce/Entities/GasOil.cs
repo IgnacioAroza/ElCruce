@@ -134,6 +134,27 @@ namespace ElCruce.Entities
                 return null;
             }
         }
+        public static decimal obtenerValorLitro()
+        {
+            try
+            {
+                string consulta = "SELECT TOP 1 price FROM Combustible ORDER BY date DESC";
+                DataTable dt = BaseDatos.Buscar(consulta);
+                if(dt != null && dt.Rows.Count > 0)
+                {
+                    return Convert.ToDecimal(dt.Rows[0]["price"]);
+                }
+                else
+                {
+                    throw new Exception("No se encontro el valor del combustible");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error al obtener el valor del combustible: " + ex.Message);
+                throw;
+            }
+        }
         #endregion
     }
 }

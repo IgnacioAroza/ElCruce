@@ -32,7 +32,7 @@ namespace ElCruce.Formularios.Modificar
                     txtPatente.Text = row["Patente"].ToString();
                     txtChasis.Text = row["Chasis"].ToString();
                     txtAcoplado.Text = row["Acoplado"].ToString();
-                    _truckOwnerId = Convert.ToInt32(row["truckOwnerId"]);
+                    _truckOwnerId = Convert.ToInt32(row["IDDueño"]);
                 }
             }
         }
@@ -96,6 +96,7 @@ namespace ElCruce.Formularios.Modificar
             }
 
             Conductor conductor = new Conductor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtCuil.Text.Trim(), txtPatente.Text.Trim(), txtChasis.Text.Trim(), txtAcoplado.Text.Trim(), _truckOwnerId);
+            conductor.Id = _id;
 
             if (conductor.Modificar())
             {

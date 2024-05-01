@@ -24,6 +24,14 @@ namespace ElCruce.Entities
         private int truckOwnerId;
         #endregion
 
+        #region Propiedades
+        public int Id
+        {
+            set { id = value; }
+            get { return id; }
+        }
+        #endregion
+
         #region Contructor
         public Viajes() { }
         public Viajes(DateTime pDate, string pOrigin, string pDestination, decimal pCashAdvance, decimal pFuelAdvance, decimal pLiquidNumberProduct, decimal pImporteLiquidacion, decimal pFee, int pDriverId, int pTruckOwnerId)
@@ -33,7 +41,7 @@ namespace ElCruce.Entities
             destination = pDestination;
             cashAdvance = pCashAdvance;
             fuelAdvance = pFuelAdvance;
-            liquidNumberProduct = pImporteLiquidacion;
+            liquidNumberProduct = pLiquidNumberProduct;
             importeLiquidacion = pImporteLiquidacion;
             fee = pFee;
             driverId = pDriverId;
@@ -73,7 +81,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "UPDATE Viaje SET date = @Fecha, origin = @Origen, destination = @Destino, cashAdvance = @AdelantoEfectivo, fuelAdvance = @AdelantoCombustible, liquidNumberProduct = @NumeroLiquidoProducto, importeLiquidacion = @ImporteLiquidacion, fee = @Tarifa, driverId = @IdChofer, truckOwnerId = @IdDuenio WHERE id = @Id";
+                string consulta = "UPDATE Viajes SET date = @Fecha, origin = @Origen, destination = @Destino, cashAdvance = @AdelantoEfectivo, fuelAdvance = @AdelantoCombustible, liquidNumberProduct = @NumeroLiquidoProducto, importeLiquidacion = @ImporteLiquidacion, fee = @Tarifa, driverId = @IdChofer, truckOwnerId = @IdDuenio WHERE Viajes.id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Fecha", date),
@@ -101,7 +109,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "DELETE FROM Viaje WHERE id = @Id";
+                string consulta = "DELETE FROM Viajes WHERE id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Id", idSeleccionado)
@@ -119,7 +127,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                return BaseDatos.Buscar("SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id;");
+                return BaseDatos.Buscar("SELECT Viajes.id AS Id, Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id;");
             }
             catch (Exception ex)
             {
@@ -128,11 +136,29 @@ namespace ElCruce.Entities
             }
         }
 
+        static public DataTable BuscarXId(int id)
+        {
+            try
+            {
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Origen, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño, Viajes.driverId AS IdChofer, Viajes.truckOwnerId AS IdDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE Viajes.id = @Id";
+                SqlParameter[] parametros =
+                {
+                    new SqlParameter("@Id", id)
+                };
+                return BaseDatos.Buscar(consulta, parametros);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error al buscar por Id el viaje", ex.Message);
+                return null;
+            }
+        }
+        
         public static DataTable BuscarXNombreChofer(string name)
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE Driver.name LIKE '%" + name + "%';";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Drivers.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE Driver.name LIKE '%" + name + "%';";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)
@@ -146,7 +172,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE Driver.lastname LIKE '%" + lastname + "%';";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE Driver.lastname LIKE '%" + lastname + "%';";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)
@@ -160,7 +186,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE truckOwner.name LIKE '%" + name + "%';";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE truckOwner.name LIKE '%" + name + "%';";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)
@@ -174,7 +200,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE truckOwner.lastname LIKE '%" + lastname + "%';";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE truckOwner.lastname LIKE '%" + lastname + "%';";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)
@@ -188,7 +214,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE Viaje.date = @Fecha;";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE Viaje.date = @Fecha;";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Fecha", fecha)
@@ -206,7 +232,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Viaje.date AS Fecha, Viaje.origin AS Viaje, Viaje.destination AS Destino, Viaje.cashAdvance AS AdelantoEfectivo, Viaje.fuelAdvance AS AdelantoCombustible, Viaje.liquidNumberProduct AS NumeroLiquidoProducto, Viaje.importeLiquidacion AS ImporteLiquidacion, Viaje.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viaje INNER JOIN Driver ON Viaje.driverId = Driver.id INNER JOIN truckOwner ON Viaje.truckOwnerId = truckOwner.id WHERE Viaje.liquidNumberProduct = @NumeroLiquidoProducto;";
+                string consulta = "SELECT Viajes.date AS Fecha, Viajes.origin AS Viaje, Viajes.destination AS Destino, Viajes.cashAdvance AS AdelantoEfectivo, Viajes.fuelAdvance AS AdelantoCombustible, Viajes.liquidNumberProduct AS NumeroLiquidoProducto, Viajes.importeLiquidacion AS ImporteLiquidacion, Viajes.fee AS Tarifa, Driver.name AS NombreChofer, Driver.lastname AS ApellidoChofer, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Viajes INNER JOIN Driver ON Viajes.driverId = Driver.id INNER JOIN truckOwner ON Viajes.truckOwnerId = truckOwner.id WHERE Viaje.liquidNumberProduct = @NumeroLiquidoProducto;";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@NumeroLiquidoProducto", number)
