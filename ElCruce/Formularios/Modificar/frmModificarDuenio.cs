@@ -28,6 +28,7 @@ namespace ElCruce.Formularios.Modificar
                     txtNombre.Text = row["Nombre"].ToString();
                     txtApellido.Text = row["Apellido"].ToString();
                     txtCuil.Text = row["CUIT"].ToString();
+                    txtCBU.Text = row["CBUAlias"].ToString();
                 }
             }
         }
@@ -72,7 +73,7 @@ namespace ElCruce.Formularios.Modificar
                 return;
             }
 
-            DuenioCamion duenio = new DuenioCamion(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtCuil.Text.Trim());
+            DuenioCamion duenio = new DuenioCamion(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtCuil.Text.Trim(), txtCBU.Text.Trim());
             duenio.Id = _id;
 
             if (duenio.Modificar())

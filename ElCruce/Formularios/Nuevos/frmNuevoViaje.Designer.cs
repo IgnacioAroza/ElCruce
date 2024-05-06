@@ -54,9 +54,10 @@
             // 
             // dtpFecha
             // 
+            dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(101, 33);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(182, 23);
+            dtpFecha.Size = new Size(128, 23);
             dtpFecha.TabIndex = 52;
             // 
             // txtTarifa
@@ -205,18 +206,18 @@
             label9.AutoSize = true;
             label9.Location = new Point(515, 163);
             label9.Name = "label9";
-            label9.Size = new Size(53, 15);
+            label9.Size = new Size(42, 15);
             label9.TabIndex = 53;
-            label9.Text = "IDDueño";
+            label9.Text = "Dueño";
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Location = new Point(307, 163);
             label10.Name = "label10";
-            label10.Size = new Size(54, 15);
+            label10.Size = new Size(43, 15);
             label10.TabIndex = 54;
-            label10.Text = "IDChofer";
+            label10.Text = "Chofer";
             // 
             // cbChofer
             // 

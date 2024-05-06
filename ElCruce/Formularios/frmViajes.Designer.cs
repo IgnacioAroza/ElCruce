@@ -208,10 +208,12 @@
             // 
             // dtpFecha
             // 
+            dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(962, 158);
             dtpFecha.Name = "dtpFecha";
-            dtpFecha.Size = new Size(212, 23);
+            dtpFecha.Size = new Size(158, 23);
             dtpFecha.TabIndex = 27;
+            dtpFecha.Value = new DateTime(2024, 5, 7, 0, 0, 0, 0);
             // 
             // frmViajes
             // 

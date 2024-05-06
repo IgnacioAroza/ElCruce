@@ -49,9 +49,10 @@ namespace ElCruce.Formularios.Nuevos
         private void CargarDueños()
         {
             DataTable dtDuenios = DuenioCamion.BuscarTodo();
+            dtDuenios.Columns.Add("NombreCompleto", typeof(string), "Nombre + ', ' + Apellido");
+            cbDuenio.DisplayMember = "NombreCompleto";
+            cbDuenio.ValueMember = "ID";
             cbDuenio.DataSource = dtDuenios;
-            cbDuenio.DisplayMember = "NameLastname";
-            cbDuenio.ValueMember = "Id";
         }
         private bool ValidarDatos()
         {

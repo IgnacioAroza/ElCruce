@@ -19,6 +19,8 @@ namespace ElCruce.Formularios.Modificar
         public frmModificarViaje(int idSeleccionado)
         {
             InitializeComponent();
+            CargarChofer();
+            CargarDuenios();
             this._id = idSeleccionado;
             if (idSeleccionado > 0)
             {
@@ -39,6 +41,23 @@ namespace ElCruce.Formularios.Modificar
                     _truckOwnerId = Convert.ToInt32(row["IdDueño"]);
                 }
             }
+        }
+
+        private void CargarDuenios()
+        {
+            DataTable dtDuenios = DuenioCamion.BuscarTodo();
+            dtDuenios.Columns.Add("NombreCompleto", typeof(string), "Nombre + ', ' + Apellido");
+            cbDuenio.DisplayMember = "NombreCompleto";
+            cbDuenio.ValueMember = "ID";
+            cbDuenio.DataSource = dtDuenios;
+        }
+        private void CargarChofer()
+        {
+            DataTable dtDuenios = Conductor.BuscarTodo();
+            dtDuenios.Columns.Add("NombreCompleto", typeof(string), "Nombre + ', ' + Apellido");
+            cbChofer.DisplayMember = "NombreCompleto";
+            cbChofer.ValueMember = "ID";
+            cbChofer.DataSource = dtDuenios;
         }
 
         private bool ValidarDatos()
@@ -93,13 +112,9 @@ namespace ElCruce.Formularios.Modificar
                 return;
             }
 
-            decimal valorCombustible = ObtenerValorLitroCombustible();
+            DateTime fecha = dtpFecha.Value.Date;
 
-            decimal adelantoCombustible = Convert.ToDecimal(txtCombustible.Text.Trim());
-
-            decimal nuevoImporteLiquidacion = CalcularNuevoImporteLiquidacion(valorCombustible, adelantoCombustible, Convert.ToDecimal(txtEfectivo.Text.Trim()), Convert.ToDecimal(txtImporte.Text.Trim()));
-
-            Viajes viaje = new Viajes(dtpFecha.Value, txtOrigen.Text.Trim(), txtDestino.Text.Trim(), Convert.ToDecimal(txtEfectivo.Text.Trim()), Convert.ToDecimal(txtCombustible.Text.Trim()), Convert.ToDecimal(txtNroLiq.Text.Trim()), nuevoImporteLiquidacion, Convert.ToDecimal(txtTarifa.Text.Trim()), _choferId, _truckOwnerId);
+            Viajes viaje = new Viajes(fecha, txtOrigen.Text.Trim(), txtDestino.Text.Trim(), Convert.ToDecimal(txtEfectivo.Text.Trim()), Convert.ToDecimal(txtCombustible.Text.Trim()), Convert.ToDecimal(txtNroLiq.Text.Trim()), Convert.ToDecimal(txtImporte.Text.Trim()), Convert.ToDecimal(txtTarifa.Text.Trim()), _choferId, _truckOwnerId);
             viaje.Id = _id;
 
             if (viaje.Modificar())
@@ -111,18 +126,6 @@ namespace ElCruce.Formularios.Modificar
             {
                 MessageBox.Show("Error al modificar el viaje");
             }
-        }
-        private decimal ObtenerValorLitroCombustible()
-        {
-            decimal valorCombustible = GasOil.obtenerValorLitro();
-            return valorCombustible;
-        }
-        private decimal CalcularNuevoImporteLiquidacion(decimal valorCombustible, decimal adelantoCombustible, decimal adelantoEfectivo, decimal importe)
-        {
-            decimal totalCombustible = valorCombustible * adelantoCombustible;
-
-            decimal nuevoImporte = importe - (totalCombustible + adelantoEfectivo);
-            return nuevoImporte;
         }
     }
 }

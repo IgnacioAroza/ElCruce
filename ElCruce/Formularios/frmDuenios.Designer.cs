@@ -40,16 +40,16 @@
             // dgvDuenio
             // 
             dgvDuenio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDuenio.Location = new Point(12, 226);
+            dgvDuenio.Location = new Point(12, 147);
             dgvDuenio.Name = "dgvDuenio";
             dgvDuenio.RowTemplate.Height = 25;
             dgvDuenio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDuenio.Size = new Size(451, 143);
+            dgvDuenio.Size = new Size(550, 143);
             dgvDuenio.TabIndex = 0;
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(178, 26);
+            btnNuevo.Location = new Point(126, 28);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(107, 26);
             btnNuevo.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(178, 76);
+            btnModificar.Location = new Point(126, 78);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(107, 26);
             btnModificar.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(178, 123);
+            btnEliminar.Location = new Point(326, 28);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(107, 26);
             btnEliminar.TabIndex = 3;
@@ -79,7 +79,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(189, 387);
+            btnSalir.Location = new Point(242, 316);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(86, 26);
             btnSalir.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(178, 172);
+            btnActualizar.Location = new Point(326, 77);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(107, 26);
             btnActualizar.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(497, 445);
+            ClientSize = new Size(574, 372);
             Controls.Add(btnActualizar);
             Controls.Add(btnSalir);
             Controls.Add(btnEliminar);

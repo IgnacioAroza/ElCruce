@@ -17,6 +17,7 @@ namespace ElCruce.Entities
         private string name;
         private string lastname;
         private string CUIT;
+        private string CBU;
         #endregion
 
         #region Propiedades
@@ -32,11 +33,12 @@ namespace ElCruce.Entities
         {
 
         }
-        public DuenioCamion(string pName, string pLastname, string pCUIT)
+        public DuenioCamion(string pName, string pLastname, string pCUIT, string pCBU)
         {
             name = pName;
             lastname = pLastname;
             CUIT = pCUIT;
+            CBU = pCBU;
         }
         #endregion
 
@@ -45,12 +47,13 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "INSERT INTO truckOwner (name, lastname, CUIT) VALUES (@Nombre, @Apellido, @CUIT)";
+                string consulta = "INSERT INTO truckOwner (name, lastname, CUIT, CBU) VALUES (@Nombre, @Apellido, @CUIT, @CBU)";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Nombre", name),
                     new SqlParameter("@Apellido", lastname),
-                    new SqlParameter("@CUIT", CUIT)
+                    new SqlParameter("@CUIT", CUIT),
+                    new SqlParameter("@CBU", CBU)
                 };
                 return BaseDatos.EjecutarConsulta(consulta, parametros);
             }
@@ -65,12 +68,13 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "UPDATE truckOwner SET name = @Nombre, lastname = @Apellido, CUIT = @CUIT WHERE id = @Id";
+                string consulta = "UPDATE truckOwner SET name = @Nombre, lastname = @Apellido, CUIT = @CUIT, CBU = @CBU WHERE id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Nombre", name),
                     new SqlParameter("@Apellido", lastname),
                     new SqlParameter("@CUIT", CUIT),
+                    new SqlParameter("@CBU", CBU),
                     new SqlParameter("@Id", id)
                 };
                 return BaseDatos.EjecutarConsulta(consulta, parametros);
@@ -104,7 +108,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                return BaseDatos.Buscar("SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT FROM truckOwner");
+                return BaseDatos.Buscar("SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT, truckOwner.CBU AS CBUAlias FROM truckOwner");
             }
             catch (Exception ex)
             {
@@ -117,7 +121,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT FROM truckOwner WHERE id = @Id";
+                string consulta = "SELECT truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT, truckOwner.CBU AS CBUAlias FROM truckOwner WHERE id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Id", id)
@@ -135,7 +139,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT FROM truckOwner WHERE truckOwner.name LIKE '%" + name + "%'";
+                string consulta = "SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT, truckOwner.CBU AS CBUAlias FROM truckOwner WHERE truckOwner.name LIKE '%" + name + "%'";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)
@@ -149,7 +153,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT FROM truckOwner WHERE truckOwner.lastname LIKE '%" + lastname + "%'";
+                string consulta = "SELECT truckOwner.id as ID, truckOwner.name AS Nombre, truckOwner.lastname AS Apellido, truckOwner.CUIT AS CUIT, truckOwner.CBU AS CBUAlias FROM truckOwner WHERE truckOwner.lastname LIKE '%" + lastname + "%'";
                 return BaseDatos.Buscar(consulta);
             }
             catch (Exception ex)

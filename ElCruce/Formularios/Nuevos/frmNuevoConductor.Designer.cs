@@ -175,9 +175,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(145, 155);
             label1.Name = "label1";
-            label1.Size = new Size(55, 15);
+            label1.Size = new Size(45, 15);
             label1.TabIndex = 30;
-            label1.Text = "IdDueño:";
+            label1.Text = "Dueño:";
             // 
             // frmNuevoConductor
             // 
