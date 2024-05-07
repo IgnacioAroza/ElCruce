@@ -88,6 +88,7 @@ namespace ElCruce.Formularios
             DataTable dt = new DataTable();
             dt = Conductor.BuscarXNombre(txtNombre.Text.Trim());
             LlenarGrilla(dt);
+            txtNombre.Text = "";
         }
 
         private void btnBuscarApellido_Click(object sender, EventArgs e)
@@ -95,6 +96,7 @@ namespace ElCruce.Formularios
             DataTable dt = new DataTable();
             dt = Conductor.BuscarXApellido(txtApellido.Text.Trim());
             LlenarGrilla(dt);
+            txtApellido.Text = "";
         }
     }
 }

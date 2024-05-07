@@ -36,6 +36,8 @@
             txtCuil = new TextBox();
             btnGuardar = new Button();
             btnSalir = new Button();
+            txtCBU = new TextBox();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -63,7 +65,7 @@
             label3.Name = "label3";
             label3.Size = new Size(35, 15);
             label3.TabIndex = 2;
-            label3.Text = "CUIL:";
+            label3.Text = "CUIT:";
             // 
             // txtNombre
             // 
@@ -88,7 +90,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(67, 182);
+            btnGuardar.Location = new Point(65, 216);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(95, 27);
             btnGuardar.TabIndex = 8;
@@ -98,7 +100,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(191, 182);
+            btnSalir.Location = new Point(189, 216);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(95, 27);
             btnSalir.TabIndex = 9;
@@ -106,11 +108,29 @@
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
             // 
-            // NuevoDuenio
+            // txtCBU
+            // 
+            txtCBU.Location = new Point(123, 147);
+            txtCBU.Name = "txtCBU";
+            txtCBU.Size = new Size(180, 23);
+            txtCBU.TabIndex = 11;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(51, 147);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 15);
+            label4.TabIndex = 10;
+            label4.Text = "CBU/Alias:";
+            // 
+            // frmNuevoDuenio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(357, 269);
+            Controls.Add(txtCBU);
+            Controls.Add(label4);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
             Controls.Add(txtCuil);
@@ -119,8 +139,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "NuevoDuenio";
+            Name = "frmNuevoDuenio";
             Text = "NuevoDuenio";
+            Load += frmNuevoDuenio_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -135,5 +156,7 @@
         private TextBox txtCuil;
         private Button btnGuardar;
         private Button btnSalir;
+        private TextBox txtCBU;
+        private Label label4;
     }
 }

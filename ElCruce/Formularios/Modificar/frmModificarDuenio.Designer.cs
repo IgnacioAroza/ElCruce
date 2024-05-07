@@ -37,12 +37,14 @@
             label2 = new Label();
             label1 = new Label();
             dgvDuenio = new DataGridView();
+            txtCBU = new TextBox();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDuenio).BeginInit();
             SuspendLayout();
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(197, 178);
+            btnSalir.Location = new Point(289, 152);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(95, 27);
             btnSalir.TabIndex = 17;
@@ -52,7 +54,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(73, 178);
+            btnGuardar.Location = new Point(165, 152);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(95, 27);
             btnGuardar.TabIndex = 16;
@@ -62,21 +64,21 @@
             // 
             // txtCuil
             // 
-            txtCuil.Location = new Point(129, 103);
+            txtCuil.Location = new Point(353, 22);
             txtCuil.Name = "txtCuil";
             txtCuil.Size = new Size(180, 23);
             txtCuil.TabIndex = 15;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(129, 62);
+            txtApellido.Location = new Point(80, 62);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(180, 23);
             txtApellido.TabIndex = 14;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(129, 22);
+            txtNombre.Location = new Point(80, 22);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(180, 23);
             txtNombre.TabIndex = 13;
@@ -84,7 +86,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(57, 103);
+            label3.Location = new Point(281, 22);
             label3.Name = "label3";
             label3.Size = new Size(35, 15);
             label3.TabIndex = 12;
@@ -93,7 +95,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(57, 62);
+            label2.Location = new Point(8, 62);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
             label2.TabIndex = 11;
@@ -102,7 +104,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(57, 25);
+            label1.Location = new Point(8, 25);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
             label1.TabIndex = 10;
@@ -111,18 +113,36 @@
             // dgvDuenio
             // 
             dgvDuenio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDuenio.Location = new Point(12, 254);
+            dgvDuenio.Location = new Point(12, 204);
             dgvDuenio.Name = "dgvDuenio";
             dgvDuenio.RowTemplate.Height = 25;
             dgvDuenio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDuenio.Size = new Size(446, 155);
+            dgvDuenio.Size = new Size(545, 155);
             dgvDuenio.TabIndex = 18;
             // 
-            // ModificarDuenio
+            // txtCBU
+            // 
+            txtCBU.Location = new Point(353, 62);
+            txtCBU.Name = "txtCBU";
+            txtCBU.Size = new Size(180, 23);
+            txtCBU.TabIndex = 20;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(281, 62);
+            label4.Name = "label4";
+            label4.Size = new Size(63, 15);
+            label4.TabIndex = 19;
+            label4.Text = "CBU/Alias:";
+            // 
+            // frmModificarDuenio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(472, 450);
+            ClientSize = new Size(569, 394);
+            Controls.Add(txtCBU);
+            Controls.Add(label4);
             Controls.Add(dgvDuenio);
             Controls.Add(btnSalir);
             Controls.Add(btnGuardar);
@@ -132,7 +152,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "ModificarDuenio";
+            Name = "frmModificarDuenio";
             Text = "ModificarDuenio";
             Load += ModificarDuenio_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDuenio).EndInit();
@@ -151,5 +171,7 @@
         private Label label2;
         private Label label1;
         private DataGridView dgvDuenio;
+        private TextBox txtCBU;
+        private Label label4;
     }
 }

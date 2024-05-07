@@ -35,12 +35,6 @@ namespace ElCruce
             frmViajes.Show();
         }
 
-        private void valorCombustibleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCombustible frmCombustible = new frmCombustible();
-            frmCombustible.Show();
-        }
-
         private void btnNroLiq_Click(object sender, EventArgs e)
         {
             decimal valorBuscado;
@@ -66,6 +60,22 @@ namespace ElCruce
         {
             DataTable dt = Viajes.BuscarTodo();
             dgvViajes.DataSource = dt;
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            if (dgvViajes.SelectedRows.Count > 0)
+            {
+                DataGridViewRow filaSeleccionada = dgvViajes.SelectedRows[0];
+                DataRow filaDatos = ((DataRowView)filaSeleccionada.DataBoundItem).Row;
+                //Llamar al metodo para exportar
+                ExportarPDF.ExportarViaje(filaDatos);
+                MessageBox.Show("Exportado Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila antes de exportar");
+            }
         }
     }
 }

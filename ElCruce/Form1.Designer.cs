@@ -32,18 +32,18 @@
             dueñosCamionToolStripMenuItem = new ToolStripMenuItem();
             choferesToolStripMenuItem = new ToolStripMenuItem();
             viajesToolStripMenuItem = new ToolStripMenuItem();
-            valorCombustibleToolStripMenuItem = new ToolStripMenuItem();
             dgvViajes = new DataGridView();
             txtNroLiq = new TextBox();
             btnNroLiq = new Button();
             btnBuscarTodo = new Button();
+            btnExportar = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvViajes).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dueñosCamionToolStripMenuItem, choferesToolStripMenuItem, viajesToolStripMenuItem, valorCombustibleToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dueñosCamionToolStripMenuItem, choferesToolStripMenuItem, viajesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1350, 24);
@@ -71,19 +71,13 @@
             viajesToolStripMenuItem.Text = "Viajes";
             viajesToolStripMenuItem.Click += viajesToolStripMenuItem_Click;
             // 
-            // valorCombustibleToolStripMenuItem
-            // 
-            valorCombustibleToolStripMenuItem.Name = "valorCombustibleToolStripMenuItem";
-            valorCombustibleToolStripMenuItem.Size = new Size(116, 20);
-            valorCombustibleToolStripMenuItem.Text = "Valor Combustible";
-            valorCombustibleToolStripMenuItem.Click += valorCombustibleToolStripMenuItem_Click;
-            // 
             // dgvViajes
             // 
             dgvViajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvViajes.Location = new Point(12, 116);
             dgvViajes.Name = "dgvViajes";
             dgvViajes.RowTemplate.Height = 25;
+            dgvViajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvViajes.Size = new Size(1326, 225);
             dgvViajes.TabIndex = 1;
             // 
@@ -114,11 +108,22 @@
             btnBuscarTodo.UseVisualStyleBackColor = true;
             btnBuscarTodo.Click += btnBuscarTodo_Click;
             // 
+            // btnExportar
+            // 
+            btnExportar.Location = new Point(517, 63);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Size = new Size(95, 23);
+            btnExportar.TabIndex = 29;
+            btnExportar.Text = "Exportar PDF";
+            btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1350, 372);
+            Controls.Add(btnExportar);
             Controls.Add(btnBuscarTodo);
             Controls.Add(txtNroLiq);
             Controls.Add(btnNroLiq);
@@ -141,10 +146,10 @@
         private ToolStripMenuItem dueñosCamionToolStripMenuItem;
         private ToolStripMenuItem choferesToolStripMenuItem;
         private ToolStripMenuItem viajesToolStripMenuItem;
-        private ToolStripMenuItem valorCombustibleToolStripMenuItem;
         private DataGridView dgvViajes;
         private TextBox txtNroLiq;
         private Button btnNroLiq;
         private Button btnBuscarTodo;
+        private Button btnExportar;
     }
 }
