@@ -10,7 +10,7 @@ namespace ElCruce
 {
     static class BaseDatos
     {
-        private static string connectionString = @"Data Source=DESKTOP-4TMTBKD;Initial Catalog=TransporteElCruce;Integrated Security=True";
+        private static string connectionString = @"Data Source=DESKTOP-UAJ2ONG;Initial Catalog=TransporteElCruce;Integrated Security=True";
 
         public static DataTable Buscar(string consultaSql, SqlParameter[] parametros = null)
         {

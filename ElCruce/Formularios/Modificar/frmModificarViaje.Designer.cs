@@ -145,6 +145,7 @@
             // 
             // dgvViajes
             // 
+            dgvViajes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgvViajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvViajes.Location = new Point(12, 256);
             dgvViajes.Name = "dgvViajes";

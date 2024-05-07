@@ -12,12 +12,17 @@ namespace ElCruce.Entities
 {
     internal class ExportarPDF
     {
-        private static int contador = 1;
         public static void ExportarViaje(DataRow filaViaje)
         {
+            // Obtener nombre y apellido del dueño
+            string nombreDueño = filaViaje["NombreDueño"].ToString();
+            string apellidoDueño = filaViaje["ApellidoDueño"].ToString();
+            string nombreApellidoDueño = $"{apellidoDueño}, {nombreDueño}";
+
             // Nombre del archivo y ruta de la carpeta
-            string nombreBase = "ViajeExportado";
-            string nombreArchivo = $"{nombreBase}{contador}.pdf";
+            string nombreBase = "Viaje-";
+            string nombreArchivo = $"{nombreBase}{nombreApellidoDueño}.pdf";
+
             string rutaCarpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string rutaCompleta = Path.Combine(rutaCarpetaDocumentos, "ArchivosPDF");
             string rutaArchivo = Path.Combine(rutaCompleta, nombreArchivo);
@@ -34,7 +39,9 @@ namespace ElCruce.Entities
                 doc.Open();
 
                 // Agregar logo
-                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance("D:/Usuario/Desktop/Ignacio/NuevoCruce/img/TransporteElCruce.jpeg");
+                string nombreImagen = "TransporteElCruce.jpeg";
+                string rutaImagen = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "img", nombreImagen);
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(rutaImagen);
                 logo.ScaleAbsolute(70f, 70f);
                 logo.SetAbsolutePosition(doc.Left, doc.Top - 50f);
                 doc.Add(logo);
@@ -44,11 +51,6 @@ namespace ElCruce.Entities
                 titulo.Alignment = Element.ALIGN_CENTER;
                 titulo.SpacingAfter = 20f;
                 doc.Add(titulo);
-
-                // Obtener nombre y apellido del dueño
-                string nombreDueño = filaViaje["NombreDueño"].ToString();
-                string apellidoDueño = filaViaje["ApellidoDueño"].ToString();
-                string nombreApellidoDueño = $"{nombreDueño}, {apellidoDueño}";
 
                 // Obtener datos del chofer
                 string nombreChofer = filaViaje["NombreChofer"].ToString();
@@ -110,8 +112,6 @@ namespace ElCruce.Entities
                 Paragraph datosReplicados = new Paragraph(datosReplica);
                 datosReplicados.IndentationLeft = 50f;
                 doc.Add(datosReplicados);
-
-                contador++;
             }
             catch(Exception ex)
             {

@@ -93,6 +93,7 @@
             // 
             // dgvConductores
             // 
+            dgvConductores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConductores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvConductores.Location = new Point(12, 222);
             dgvConductores.Name = "dgvConductores";

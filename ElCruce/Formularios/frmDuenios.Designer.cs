@@ -39,6 +39,7 @@
             // 
             // dgvDuenio
             // 
+            dgvDuenio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDuenio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDuenio.Location = new Point(12, 147);
             dgvDuenio.Name = "dgvDuenio";
