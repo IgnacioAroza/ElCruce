@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ElCruce.Entities
 {
@@ -29,40 +30,87 @@ namespace ElCruce.Entities
             try
             {
                 PdfWriter.GetInstance(doc, new FileStream(rutaArchivo, FileMode.Create));
+                doc.SetMargins (50f, 50f, 50f, 50f);
                 doc.Open();
 
+                // Agregar logo
+                iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance("D:/Usuario/Desktop/Ignacio/NuevoCruce/img/TransporteElCruce.jpeg");
+                logo.ScaleAbsolute(70f, 70f);
+                logo.SetAbsolutePosition(doc.Left, doc.Top - 50f);
+                doc.Add(logo);
+
                 // Agregar título
-                Paragraph titulo = new Paragraph("Reporte de Viaje", new Font(Font.FontFamily.HELVETICA, 18f, Font.BOLD));
+                Paragraph titulo = new Paragraph("Reporte de Viaje", new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 18f, iTextSharp.text.Font.BOLD));
                 titulo.Alignment = Element.ALIGN_CENTER;
+                titulo.SpacingAfter = 20f;
                 doc.Add(titulo);
 
-                // Crear una tabla con una fila y siete columnas
-                PdfPTable tabla = new PdfPTable(7);
-                tabla.AddCell(new PdfPCell(new Phrase("Dueño")));
-                tabla.AddCell(new PdfPCell(new Phrase("N° Liquido Producto")));
-                tabla.AddCell(new PdfPCell(new Phrase("Adelanto Efectivo")));
-                tabla.AddCell(new PdfPCell(new Phrase("Adelanto Combustible")));
-                tabla.AddCell(new PdfPCell(new Phrase("Importe Inicial")));
-                tabla.AddCell(new PdfPCell(new Phrase("Descuentos")));
-                tabla.AddCell(new PdfPCell(new Phrase("Importe Total")));
+                // Obtener nombre y apellido del dueño
+                string nombreDueño = filaViaje["NombreDueño"].ToString();
+                string apellidoDueño = filaViaje["ApellidoDueño"].ToString();
+                string nombreApellidoDueño = $"{nombreDueño}, {apellidoDueño}";
 
-                // Agregar datos de la fila seleccionada a la tabla
-                tabla.AddCell(new PdfPCell(new Phrase(filaViaje["NombreDueño"].ToString() + ", " + filaViaje["ApellidoDueño"].ToString())));
-                tabla.AddCell(new PdfPCell(new Phrase(filaViaje["NumeroLiquidoProducto"].ToString())));
-                tabla.AddCell(new PdfPCell(new Phrase(filaViaje["AdelantoEfectivo"].ToString())));
-                tabla.AddCell(new PdfPCell(new Phrase(filaViaje["AdelantoCombustible"].ToString())));
-                tabla.AddCell(new PdfPCell(new Phrase(filaViaje["ImporteLiquidacion"].ToString())));
+                // Obtener datos del chofer
+                string nombreChofer = filaViaje["NombreChofer"].ToString();
+                string apellidoChofer = filaViaje["ApellidoChofer"].ToString();
+                string nombreApellidoChofer = $"{nombreChofer}, {apellidoChofer}";
+                string cuilChofer = filaViaje["CUILChofer"].ToString();
+                string patente = filaViaje["Patente"].ToString();
+                string chasis = filaViaje["Chasis"].ToString();
+                string acoplado = filaViaje["Acoplado"].ToString();
+
+                // Obtener CUIT y CBU del dueño
+                string cuitDueño = filaViaje["CUITDueño"].ToString();
+                string cbuDueño = filaViaje["CBUAliasDueño"].ToString();
+
+                // Datos liquido producto
+                int nroLiquid = Convert.ToInt32(filaViaje["NumeroLiquidoProducto"]);
 
                 // Calcular descuentos e importe total
+                decimal descuentos = Convert.ToDecimal(filaViaje["AdelantoEfectivo"]) + Convert.ToDecimal(filaViaje["AdelantoCombustible"]);
                 decimal importeInicial = Convert.ToDecimal(filaViaje["ImporteLiquidacion"]);
-                decimal descuentos = Convert.ToDecimal(filaViaje["ImporteLiquidacion"]) + Convert.ToDecimal(filaViaje["AdelantoCombustible"]);
                 decimal importeTotal = importeInicial - descuentos;
 
-                tabla.AddCell(new PdfPCell(new Phrase(descuentos.ToString())));
-                tabla.AddCell(new PdfPCell(new Phrase(importeTotal.ToString())));
+                // Crear el texto con los datos del dueño
+                string datos = $"Dueño: {nombreApellidoDueño}\n" +
+                                    $"CUIT del Dueño: {cuitDueño}\n" +
+                                    $"CBU del Dueño: {cbuDueño}\n\n" +
+                                    $"Chofer: {nombreApellidoChofer}\n" +
+                                    $"CUIL Chofer: {cuilChofer}\n" +
+                                    $"Patente: {patente}\n" +
+                                    $"Chasis: {chasis}\n" +
+                                    $"Acoplado: {acoplado}\n\n" +
+                                    $"N° Liquido Producto: {nroLiquid}\n" +
+                                    $"Importe Liquidación: ${importeInicial}\n" +
+                                    $"Descuentos: ${descuentos}\n" +
+                                    $"Importe Total: ${importeTotal}\n" +
+                                    $"Tipo de pago: ";
 
-                //Agregar tabla al documento
-                doc.Add(tabla);
+                Paragraph datosParrafo = new Paragraph(datos);
+                datosParrafo.IndentationLeft = 50f;
+                datosParrafo.SpacingBefore = 20f;
+                doc.Add(datosParrafo);
+
+                doc.Add(new Paragraph("\n\n\n\n"));
+
+                string datosReplica = $"Dueño: {nombreApellidoDueño}\n" +
+                                    $"CUIT del Dueño: {cuitDueño}\n" +
+                                    $"CBU del Dueño: {cbuDueño}\n\n" +
+                                    $"Chofer: {nombreApellidoChofer}\n" +
+                                    $"CUIL Chofer: {cuilChofer}\n" +
+                                    $"Patente: {patente}\n" +
+                                    $"Chasis: {chasis}\n" +
+                                    $"Acoplado: {acoplado}\n\n" +
+                                    $"N° Liquido Producto: {nroLiquid}\n" +
+                                    $"Importe Liquidación: ${importeInicial}\n" +
+                                    $"Descuentos: ${descuentos}\n" +
+                                    $"Importe Total: ${importeTotal}\n" +
+                                    $"Tipo de pago: ";
+
+                Paragraph datosReplicados = new Paragraph(datosReplica);
+                datosReplicados.IndentationLeft = 50f;
+                doc.Add(datosReplicados);
+
                 contador++;
             }
             catch(Exception ex)
@@ -70,7 +118,10 @@ namespace ElCruce.Entities
                 Console.WriteLine("Error al exportar PDF: " + ex.Message);
                 throw ex;
             }
-            finally { doc.Close(); }
+            finally 
+            { 
+                doc.Close();
+            }
         }
     }
 }
