@@ -17,7 +17,7 @@ namespace ElCruce.Entities
             // Obtener nombre y apellido del dueño
             string nombreDueño = filaViaje["NombreDueño"].ToString();
             string apellidoDueño = filaViaje["ApellidoDueño"].ToString();
-            string nombreApellidoDueño = $"{apellidoDueño}, {nombreDueño}";
+            string nombreApellidoDueño = $"{nombreDueño}, {apellidoDueño}";
 
             // Nombre del archivo y ruta de la carpeta
             string nombreBase = "Viaje-";

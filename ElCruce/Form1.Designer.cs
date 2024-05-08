@@ -47,31 +47,28 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { dueñosCamionToolStripMenuItem, choferesToolStripMenuItem, viajesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1400, 29);
+            menuStrip1.Size = new Size(1350, 29);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // dueñosCamionToolStripMenuItem
             // 
-            dueñosCamionToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dueñosCamionToolStripMenuItem.Name = "dueñosCamionToolStripMenuItem";
-            dueñosCamionToolStripMenuItem.Size = new Size(133, 25);
+            dueñosCamionToolStripMenuItem.Size = new Size(104, 20);
             dueñosCamionToolStripMenuItem.Text = "Dueños Camion";
             dueñosCamionToolStripMenuItem.Click += dueñosCamionToolStripMenuItem_Click;
             // 
             // choferesToolStripMenuItem
             // 
-            choferesToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             choferesToolStripMenuItem.Name = "choferesToolStripMenuItem";
-            choferesToolStripMenuItem.Size = new Size(84, 25);
+            choferesToolStripMenuItem.Size = new Size(66, 20);
             choferesToolStripMenuItem.Text = "Choferes";
             choferesToolStripMenuItem.Click += choferesToolStripMenuItem_Click;
             // 
             // viajesToolStripMenuItem
             // 
-            viajesToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             viajesToolStripMenuItem.Name = "viajesToolStripMenuItem";
-            viajesToolStripMenuItem.Size = new Size(63, 25);
+            viajesToolStripMenuItem.Size = new Size(49, 20);
             viajesToolStripMenuItem.Text = "Viajes";
             viajesToolStripMenuItem.Click += viajesToolStripMenuItem_Click;
             // 
@@ -79,27 +76,26 @@
             // 
             dgvViajes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgvViajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvViajes.Dock = DockStyle.Bottom;
-            dgvViajes.Location = new Point(0, 129);
+            dgvViajes.Location = new Point(12, 116);
             dgvViajes.Name = "dgvViajes";
             dgvViajes.RowHeadersWidth = 51;
             dgvViajes.RowTemplate.Height = 25;
             dgvViajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvViajes.Size = new Size(1400, 353);
+            dgvViajes.Size = new Size(1326, 225);
             dgvViajes.TabIndex = 1;
             // 
             // txtNroLiq
             // 
-            txtNroLiq.Location = new Point(724, 66);
+            txtNroLiq.Location = new Point(950, 63);
             txtNroLiq.Name = "txtNroLiq";
             txtNroLiq.Size = new Size(156, 23);
             txtNroLiq.TabIndex = 27;
             // 
             // btnNroLiq
             // 
-            btnNroLiq.Location = new Point(516, 56);
+            btnNroLiq.Location = new Point(791, 63);
             btnNroLiq.Name = "btnNroLiq";
-            btnNroLiq.Size = new Size(186, 41);
+            btnNroLiq.Size = new Size(145, 23);
             btnNroLiq.TabIndex = 26;
             btnNroLiq.Text = "Buscar por Nro Liq Prod";
             btnNroLiq.UseVisualStyleBackColor = true;
@@ -107,9 +103,9 @@
             // 
             // btnBuscarTodo
             // 
-            btnBuscarTodo.Location = new Point(161, 56);
+            btnBuscarTodo.Location = new Point(312, 62);
             btnBuscarTodo.Name = "btnBuscarTodo";
-            btnBuscarTodo.Size = new Size(109, 41);
+            btnBuscarTodo.Size = new Size(95, 23);
             btnBuscarTodo.TabIndex = 28;
             btnBuscarTodo.Text = "Buscar Todo";
             btnBuscarTodo.UseVisualStyleBackColor = true;
@@ -117,9 +113,9 @@
             // 
             // btnExportar
             // 
-            btnExportar.Location = new Point(292, 56);
+            btnExportar.Location = new Point(517, 63);
             btnExportar.Name = "btnExportar";
-            btnExportar.Size = new Size(109, 41);
+            btnExportar.Size = new Size(95, 23);
             btnExportar.TabIndex = 29;
             btnExportar.Text = "Exportar PDF";
             btnExportar.UseVisualStyleBackColor = true;
@@ -139,7 +135,6 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
-            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

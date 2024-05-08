@@ -120,7 +120,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                return BaseDatos.Buscar("SELECT Driver.id AS Id, Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL,Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño, Driver.truckOwnerId AS IDDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id;");
+                return BaseDatos.Buscar("SELECT Driver.id AS Id, Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL,Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id;");
             }
             catch (Exception ex)
             {
@@ -133,7 +133,7 @@ namespace ElCruce.Entities
         {
             try
             {
-                string consulta = "SELECT Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL, Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño, Driver.truckOwnerId AS IDDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id WHERE Driver.id = @Id";
+                string consulta = "SELECT Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL, Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id WHERE Driver.id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Id", id)
