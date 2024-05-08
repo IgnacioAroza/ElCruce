@@ -68,6 +68,7 @@
             // 
             // dgvChoferes
             // 
+            dgvChoferes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvChoferes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChoferes.Location = new Point(12, 251);
             dgvChoferes.Name = "dgvChoferes";

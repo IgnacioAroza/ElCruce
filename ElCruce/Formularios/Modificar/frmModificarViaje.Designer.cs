@@ -145,8 +145,9 @@
             // 
             // dgvViajes
             // 
+            dgvViajes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgvViajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvViajes.Location = new Point(12, 256);
+            dgvViajes.Location = new Point(12, 257);
             dgvViajes.Name = "dgvViajes";
             dgvViajes.RowTemplate.Height = 25;
             dgvViajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

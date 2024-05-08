@@ -10,7 +10,8 @@ namespace ElCruce
 {
     static class BaseDatos
     {
-        private static string connectionString = @"Data Source=DESKTOP-4TMTBKD;Initial Catalog=TransporteElCruce;Integrated Security=True";
+        private static string nombreDispositivo = Environment.MachineName;
+        private static string connectionString = $"Data Source={nombreDispositivo};Initial Catalog=TransporteElCruce;Integrated Security=True";
 
         public static DataTable Buscar(string consultaSql, SqlParameter[] parametros = null)
         {
