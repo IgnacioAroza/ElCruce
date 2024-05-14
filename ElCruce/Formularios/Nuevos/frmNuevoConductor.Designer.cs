@@ -202,7 +202,6 @@
             Controls.Add(btnMoficar);
             Name = "frmNuevoConductor";
             Text = "frmNuevoConductor";
-            Load += frmNuevoConductor_Load;
             ResumeLayout(false);
             PerformLayout();
         }

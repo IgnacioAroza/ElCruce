@@ -19,9 +19,13 @@ namespace ElCruce.Entities
             string apellidoDueño = filaViaje["ApellidoDueño"].ToString();
             string nombreApellidoDueño = $"{nombreDueño}, {apellidoDueño}";
 
+            // Obtener la fecha del viaje
+            DateTime fecha = Convert.ToDateTime(filaViaje["Fecha"]);
+            string fechaFormateada = fecha.ToString("yyyy-MM-dd");
+
             // Nombre del archivo y ruta de la carpeta
             string nombreBase = "Viaje-";
-            string nombreArchivo = $"{nombreBase}{nombreApellidoDueño}.pdf";
+            string nombreArchivo = $"{nombreBase}{fechaFormateada}-{nombreApellidoDueño}.pdf";
 
             string rutaCarpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string rutaCompleta = Path.Combine(rutaCarpetaDocumentos, "ArchivosPDF");
@@ -74,7 +78,8 @@ namespace ElCruce.Entities
                 decimal importeTotal = importeInicial - descuentos;
 
                 // Crear el texto con los datos del dueño
-                string datos = $"Dueño: {nombreApellidoDueño}\n" +
+                string datos =      $"Fecha del viaje: {fechaFormateada}\n" +
+                                    $"Dueño: {nombreApellidoDueño}\n" +
                                     $"CUIT del Dueño: {cuitDueño}\n" +
                                     $"CBU del Dueño: {cbuDueño}\n\n" +
                                     $"Chofer: {nombreApellidoChofer}\n" +
@@ -95,7 +100,8 @@ namespace ElCruce.Entities
 
                 doc.Add(new Paragraph("\n\n\n\n"));
 
-                string datosReplica = $"Dueño: {nombreApellidoDueño}\n" +
+                string datosReplica = $"Fecha del viaje: {fechaFormateada}\n" +
+                                    $"Dueño: {nombreApellidoDueño}\n" +
                                     $"CUIT del Dueño: {cuitDueño}\n" +
                                     $"CBU del Dueño: {cbuDueño}\n\n" +
                                     $"Chofer: {nombreApellidoChofer}\n" +

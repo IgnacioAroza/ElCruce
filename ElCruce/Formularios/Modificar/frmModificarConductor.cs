@@ -18,6 +18,7 @@ namespace ElCruce.Formularios.Modificar
         public frmModificarConductor(int idSeleccionado)
         {
             InitializeComponent();
+            CargarDueños();
             this._id = idSeleccionado;
             if (idSeleccionado > 0)
             {
@@ -32,9 +33,17 @@ namespace ElCruce.Formularios.Modificar
                     txtPatente.Text = row["Patente"].ToString();
                     txtChasis.Text = row["Chasis"].ToString();
                     txtAcoplado.Text = row["Acoplado"].ToString();
-                    _truckOwnerId = Convert.ToInt32(row["IDDueño"]);
                 }
             }
+        }
+
+        private void CargarDueños()
+        {
+            DataTable dtDuenios = DuenioCamion.BuscarTodo();
+            dtDuenios.Columns.Add("NombreCompleto", typeof(string), "Nombre + ', ' + Apellido");
+            cbDuenio.DisplayMember = "NombreCompleto";
+            cbDuenio.ValueMember = "ID";
+            cbDuenio.DataSource = dtDuenios;
         }
 
         private bool ValidarDatos()
@@ -95,7 +104,9 @@ namespace ElCruce.Formularios.Modificar
                 return;
             }
 
-            Conductor conductor = new Conductor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtCuil.Text.Trim(), txtPatente.Text.Trim(), txtChasis.Text.Trim(), txtAcoplado.Text.Trim(), _truckOwnerId);
+            int idDueñoSeleccionado = Convert.ToInt32(cbDuenio.SelectedValue);
+
+            Conductor conductor = new Conductor(txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtCuil.Text.Trim(), txtPatente.Text.Trim(), txtChasis.Text.Trim(), txtAcoplado.Text.Trim(), idDueñoSeleccionado);
             conductor.Id = _id;
 
             if (conductor.Modificar())

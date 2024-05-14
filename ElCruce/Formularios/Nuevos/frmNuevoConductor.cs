@@ -93,10 +93,5 @@ namespace ElCruce.Formularios.Nuevos
 
             return true;
         }
-
-        private void frmNuevoConductor_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

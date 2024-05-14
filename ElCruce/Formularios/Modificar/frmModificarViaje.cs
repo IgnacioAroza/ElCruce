@@ -39,6 +39,9 @@ namespace ElCruce.Formularios.Modificar
                     txtTarifa.Text = row["Tarifa"].ToString();
                     _choferId = Convert.ToInt32(row["IdChofer"]);
                     _truckOwnerId = Convert.ToInt32(row["IdDueño"]);
+
+                    cbChofer.SelectedValue = _choferId;
+                    cbDuenio.SelectedValue = _truckOwnerId;
                 }
             }
         }
@@ -113,8 +116,10 @@ namespace ElCruce.Formularios.Modificar
             }
 
             DateTime fecha = dtpFecha.Value.Date;
+            int idDueñoSeleccionado = Convert.ToInt32(cbDuenio.SelectedValue);
+            int idChoferSeleccionado = Convert.ToInt32(cbChofer.SelectedValue);
 
-            Viajes viaje = new Viajes(fecha, txtOrigen.Text.Trim(), txtDestino.Text.Trim(), Convert.ToDecimal(txtEfectivo.Text.Trim()), Convert.ToDecimal(txtCombustible.Text.Trim()), Convert.ToDecimal(txtNroLiq.Text.Trim()), Convert.ToDecimal(txtImporte.Text.Trim()), Convert.ToDecimal(txtTarifa.Text.Trim()), _choferId, _truckOwnerId);
+            Viajes viaje = new Viajes(fecha, txtOrigen.Text.Trim(), txtDestino.Text.Trim(), Convert.ToDecimal(txtEfectivo.Text.Trim()), Convert.ToDecimal(txtCombustible.Text.Trim()), Convert.ToDecimal(txtNroLiq.Text.Trim()), Convert.ToDecimal(txtImporte.Text.Trim()), Convert.ToDecimal(txtTarifa.Text.Trim()), idChoferSeleccionado, idDueñoSeleccionado);
             viaje.Id = _id;
 
             if (viaje.Modificar())

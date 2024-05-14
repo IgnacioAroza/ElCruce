@@ -43,6 +43,8 @@
             txtPatente = new TextBox();
             txtChasis = new TextBox();
             txtAcoplado = new TextBox();
+            label7 = new Label();
+            cbDuenio = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvChoferes).BeginInit();
             SuspendLayout();
             // 
@@ -173,11 +175,30 @@
             txtAcoplado.Size = new Size(128, 23);
             txtAcoplado.TabIndex = 14;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(62, 152);
+            label7.Name = "label7";
+            label7.Size = new Size(45, 15);
+            label7.TabIndex = 32;
+            label7.Text = "Dueño:";
+            // 
+            // cbDuenio
+            // 
+            cbDuenio.FormattingEnabled = true;
+            cbDuenio.Location = new Point(127, 149);
+            cbDuenio.Name = "cbDuenio";
+            cbDuenio.Size = new Size(121, 23);
+            cbDuenio.TabIndex = 31;
+            // 
             // frmModificarConductor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(759, 450);
+            Controls.Add(label7);
+            Controls.Add(cbDuenio);
             Controls.Add(txtAcoplado);
             Controls.Add(txtChasis);
             Controls.Add(txtPatente);
@@ -218,5 +239,7 @@
         private TextBox txtPatente;
         private TextBox txtChasis;
         private TextBox txtAcoplado;
+        private Label label7;
+        private ComboBox cbDuenio;
     }
 }
