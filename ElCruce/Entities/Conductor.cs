@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElCruce.Entities
 {
@@ -129,18 +124,18 @@ namespace ElCruce.Entities
             }
         }
 
-        public static DataTable BuscarXId(int id) 
+        public static DataTable BuscarXId(int id)
         {
             try
             {
-                string consulta = "SELECT Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL, Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id WHERE Driver.id = @Id";
+                string consulta = "SELECT Driver.name AS Nombre, Driver.lastname AS Apellido, Driver.CUIL AS CUIL, Driver.patent AS Patente, Driver.chassis AS Chasis, Driver.coupled AS Acoplado, truckOwner.name AS NombreDueño, truckOwner.lastname AS ApellidoDueño, truckOwner.id AS IDDueño FROM Driver INNER JOIN truckOwner ON Driver.truckOwnerId = truckOwner.id WHERE Driver.id = @Id";
                 SqlParameter[] parametros =
                 {
                     new SqlParameter("@Id", id)
                 };
                 return BaseDatos.Buscar(consulta, parametros);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error al buscar por Id al conductor", ex.Message);
                 return null;
@@ -198,7 +193,7 @@ namespace ElCruce.Entities
                     new SqlParameter("@ConductorId", conductorId)
                 };
                 object result = BaseDatos.EjecutarConsulta(consulta, parametros);
-                if(result != null && result != DBNull.Value)
+                if (result != null && result != DBNull.Value)
                 {
                     return Convert.ToInt32(result);
                 }

@@ -43,9 +43,9 @@
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(235, 27);
+            btnNuevo.Location = new Point(235, 31);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(109, 25);
+            btnNuevo.Size = new Size(109, 28);
             btnNuevo.TabIndex = 0;
             btnNuevo.Text = "Nuevo Chofer";
             btnNuevo.UseVisualStyleBackColor = true;
@@ -55,7 +55,7 @@
             // 
             btnModificar.Location = new Point(235, 75);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(109, 25);
+            btnModificar.Size = new Size(109, 47);
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar Chofer";
             btnModificar.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(235, 122);
+            btnEliminar.Location = new Point(235, 138);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(109, 25);
+            btnEliminar.Size = new Size(109, 28);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar Chofer";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(493, 191);
+            btnActualizar.Location = new Point(493, 216);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(109, 25);
+            btnActualizar.Size = new Size(109, 28);
             btnActualizar.TabIndex = 3;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(493, 413);
+            btnSalir.Location = new Point(493, 468);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(109, 25);
+            btnSalir.Size = new Size(109, 28);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -95,18 +95,18 @@
             // 
             dgvConductores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvConductores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvConductores.Location = new Point(12, 222);
+            dgvConductores.Location = new Point(12, 252);
             dgvConductores.Name = "dgvConductores";
             dgvConductores.RowTemplate.Height = 25;
             dgvConductores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvConductores.Size = new Size(1041, 163);
+            dgvConductores.Size = new Size(1041, 185);
             dgvConductores.TabIndex = 5;
             // 
             // btnBuscarNombre
             // 
-            btnBuscarNombre.Location = new Point(624, 37);
+            btnBuscarNombre.Location = new Point(624, 42);
             btnBuscarNombre.Name = "btnBuscarNombre";
-            btnBuscarNombre.Size = new Size(128, 27);
+            btnBuscarNombre.Size = new Size(128, 31);
             btnBuscarNombre.TabIndex = 6;
             btnBuscarNombre.Text = "Buscar por Nombre";
             btnBuscarNombre.UseVisualStyleBackColor = true;
@@ -114,9 +114,9 @@
             // 
             // btnBuscarApellido
             // 
-            btnBuscarApellido.Location = new Point(624, 104);
+            btnBuscarApellido.Location = new Point(624, 118);
             btnBuscarApellido.Name = "btnBuscarApellido";
-            btnBuscarApellido.Size = new Size(128, 25);
+            btnBuscarApellido.Size = new Size(128, 28);
             btnBuscarApellido.TabIndex = 7;
             btnBuscarApellido.Text = "Buscar por Apellido";
             btnBuscarApellido.UseVisualStyleBackColor = true;
@@ -124,23 +124,23 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(770, 40);
+            txtNombre.Location = new Point(770, 45);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(158, 23);
+            txtNombre.Size = new Size(158, 25);
             txtNombre.TabIndex = 8;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(770, 104);
+            txtApellido.Location = new Point(770, 118);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(158, 23);
+            txtApellido.Size = new Size(158, 25);
             txtApellido.TabIndex = 9;
             // 
             // frmConductores
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1073, 450);
+            ClientSize = new Size(1073, 510);
             Controls.Add(txtApellido);
             Controls.Add(txtNombre);
             Controls.Add(btnBuscarApellido);
@@ -151,8 +151,9 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnNuevo);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "frmConductores";
-            Text = "frmConductores";
+            Text = "Choferes";
             Load += frmConductores_Load;
             ((System.ComponentModel.ISupportInitialize)dgvConductores).EndInit();
             ResumeLayout(false);

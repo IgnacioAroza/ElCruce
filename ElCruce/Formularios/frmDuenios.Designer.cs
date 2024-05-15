@@ -41,18 +41,18 @@
             // 
             dgvDuenio.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDuenio.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDuenio.Location = new Point(12, 147);
+            dgvDuenio.Location = new Point(12, 167);
             dgvDuenio.Name = "dgvDuenio";
             dgvDuenio.RowTemplate.Height = 25;
             dgvDuenio.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDuenio.Size = new Size(550, 143);
+            dgvDuenio.Size = new Size(550, 162);
             dgvDuenio.TabIndex = 0;
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(126, 28);
+            btnNuevo.Location = new Point(126, 32);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(107, 26);
+            btnNuevo.Size = new Size(107, 29);
             btnNuevo.TabIndex = 1;
             btnNuevo.Text = "Nuevo Dueño";
             btnNuevo.UseVisualStyleBackColor = true;
@@ -60,9 +60,9 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(126, 78);
+            btnModificar.Location = new Point(126, 88);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(107, 26);
+            btnModificar.Size = new Size(107, 29);
             btnModificar.TabIndex = 2;
             btnModificar.Text = "Modicar Dueño";
             btnModificar.UseVisualStyleBackColor = true;
@@ -70,9 +70,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(326, 28);
+            btnEliminar.Location = new Point(326, 32);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(107, 26);
+            btnEliminar.Size = new Size(107, 29);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eliminar Dueño";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -80,9 +80,9 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(242, 316);
+            btnSalir.Location = new Point(242, 358);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(86, 26);
+            btnSalir.Size = new Size(86, 29);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -90,9 +90,9 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(326, 77);
+            btnActualizar.Location = new Point(326, 87);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(107, 26);
+            btnActualizar.Size = new Size(107, 29);
             btnActualizar.TabIndex = 5;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -100,17 +100,18 @@
             // 
             // frmDuenios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(574, 372);
+            ClientSize = new Size(574, 422);
             Controls.Add(btnActualizar);
             Controls.Add(btnSalir);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnNuevo);
             Controls.Add(dgvDuenio);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "frmDuenios";
-            Text = "frmDuenios";
+            Text = "Dueños";
             Load += frmDuenios_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDuenio).EndInit();
             ResumeLayout(false);

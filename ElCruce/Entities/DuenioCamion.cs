@@ -1,12 +1,5 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElCruce.Entities
 {
@@ -128,7 +121,7 @@ namespace ElCruce.Entities
                 };
                 return BaseDatos.Buscar(consulta, parametros);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine($"Error al buscar por ID el Dueño, {ex.Message}");
                 return null;

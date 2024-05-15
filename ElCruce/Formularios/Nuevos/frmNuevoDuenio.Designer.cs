@@ -43,56 +43,56 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 29);
+            label1.Location = new Point(51, 33);
             label1.Name = "label1";
-            label1.Size = new Size(54, 15);
+            label1.Size = new Size(60, 17);
             label1.TabIndex = 0;
             label1.Text = "Nombre:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 66);
+            label2.Location = new Point(51, 75);
             label2.Name = "label2";
-            label2.Size = new Size(54, 15);
+            label2.Size = new Size(59, 17);
             label2.TabIndex = 1;
             label2.Text = "Apellido:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(51, 107);
+            label3.Location = new Point(51, 121);
             label3.Name = "label3";
-            label3.Size = new Size(35, 15);
+            label3.Size = new Size(38, 17);
             label3.TabIndex = 2;
             label3.Text = "CUIT:";
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(123, 26);
+            txtNombre.Location = new Point(123, 29);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(180, 23);
+            txtNombre.Size = new Size(180, 25);
             txtNombre.TabIndex = 3;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(123, 66);
+            txtApellido.Location = new Point(123, 75);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(180, 23);
+            txtApellido.Size = new Size(180, 25);
             txtApellido.TabIndex = 4;
             // 
             // txtCuil
             // 
-            txtCuil.Location = new Point(123, 107);
+            txtCuil.Location = new Point(123, 121);
             txtCuil.Name = "txtCuil";
-            txtCuil.Size = new Size(180, 23);
+            txtCuil.Size = new Size(180, 25);
             txtCuil.TabIndex = 5;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(65, 216);
+            btnGuardar.Location = new Point(65, 245);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(95, 27);
+            btnGuardar.Size = new Size(95, 31);
             btnGuardar.TabIndex = 8;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -100,9 +100,9 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(189, 216);
+            btnSalir.Location = new Point(189, 245);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(95, 27);
+            btnSalir.Size = new Size(95, 31);
             btnSalir.TabIndex = 9;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -110,25 +110,25 @@
             // 
             // txtCBU
             // 
-            txtCBU.Location = new Point(123, 147);
+            txtCBU.Location = new Point(123, 167);
             txtCBU.Name = "txtCBU";
-            txtCBU.Size = new Size(180, 23);
+            txtCBU.Size = new Size(180, 25);
             txtCBU.TabIndex = 11;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(51, 147);
+            label4.Location = new Point(51, 167);
             label4.Name = "label4";
-            label4.Size = new Size(63, 15);
+            label4.Size = new Size(67, 17);
             label4.TabIndex = 10;
             label4.Text = "CBU/Alias:";
             // 
             // frmNuevoDuenio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(357, 269);
+            ClientSize = new Size(357, 305);
             Controls.Add(txtCBU);
             Controls.Add(label4);
             Controls.Add(btnSalir);
@@ -139,8 +139,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "frmNuevoDuenio";
-            Text = "NuevoDuenio";
+            Text = "Crear Dueño";
             Load += frmNuevoDuenio_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -48,105 +48,105 @@
             // 
             // txtAcoplado
             // 
-            txtAcoplado.Location = new Point(359, 101);
+            txtAcoplado.Location = new Point(359, 114);
             txtAcoplado.Name = "txtAcoplado";
-            txtAcoplado.Size = new Size(128, 23);
+            txtAcoplado.Size = new Size(128, 25);
             txtAcoplado.TabIndex = 28;
             // 
             // txtChasis
             // 
-            txtChasis.Location = new Point(359, 68);
+            txtChasis.Location = new Point(359, 77);
             txtChasis.Name = "txtChasis";
-            txtChasis.Size = new Size(128, 23);
+            txtChasis.Size = new Size(128, 25);
             txtChasis.TabIndex = 27;
             // 
             // txtPatente
             // 
-            txtPatente.Location = new Point(359, 28);
+            txtPatente.Location = new Point(359, 32);
             txtPatente.Name = "txtPatente";
-            txtPatente.Size = new Size(128, 23);
+            txtPatente.Size = new Size(128, 25);
             txtPatente.TabIndex = 26;
             // 
             // txtCuil
             // 
-            txtCuil.Location = new Point(81, 101);
+            txtCuil.Location = new Point(81, 114);
             txtCuil.Name = "txtCuil";
-            txtCuil.Size = new Size(128, 23);
+            txtCuil.Size = new Size(128, 25);
             txtCuil.TabIndex = 25;
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(81, 63);
+            txtApellido.Location = new Point(81, 71);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(128, 23);
+            txtApellido.Size = new Size(128, 25);
             txtApellido.TabIndex = 24;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(81, 28);
+            txtNombre.Location = new Point(81, 32);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(128, 23);
+            txtNombre.Size = new Size(128, 25);
             txtNombre.TabIndex = 23;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(287, 104);
+            label7.Location = new Point(287, 118);
             label7.Name = "label7";
-            label7.Size = new Size(61, 15);
+            label7.Size = new Size(67, 17);
             label7.TabIndex = 22;
             label7.Text = "Acoplado:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(287, 71);
+            label8.Location = new Point(287, 80);
             label8.Name = "label8";
-            label8.Size = new Size(44, 15);
+            label8.Size = new Size(48, 17);
             label8.TabIndex = 21;
             label8.Text = "Chasis:";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(287, 31);
+            label9.Location = new Point(287, 35);
             label9.Name = "label9";
-            label9.Size = new Size(50, 15);
+            label9.Size = new Size(54, 17);
             label9.TabIndex = 20;
             label9.Text = "Patente:";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(21, 104);
+            label10.Location = new Point(21, 118);
             label10.Name = "label10";
-            label10.Size = new Size(35, 15);
+            label10.Size = new Size(37, 17);
             label10.TabIndex = 19;
             label10.Text = "CUIL:";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(21, 71);
+            label11.Location = new Point(21, 80);
             label11.Name = "label11";
-            label11.Size = new Size(54, 15);
+            label11.Size = new Size(59, 17);
             label11.TabIndex = 18;
             label11.Text = "Apellido:";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(21, 31);
+            label12.Location = new Point(21, 35);
             label12.Name = "label12";
-            label12.Size = new Size(54, 15);
+            label12.Size = new Size(60, 17);
             label12.TabIndex = 17;
             label12.Text = "Nombre:";
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(287, 198);
+            btnSalir.Location = new Point(287, 224);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(75, 23);
+            btnSalir.Size = new Size(75, 26);
             btnSalir.TabIndex = 16;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -154,9 +154,9 @@
             // 
             // btnMoficar
             // 
-            btnMoficar.Location = new Point(145, 198);
+            btnMoficar.Location = new Point(145, 224);
             btnMoficar.Name = "btnMoficar";
-            btnMoficar.Size = new Size(75, 23);
+            btnMoficar.Size = new Size(75, 26);
             btnMoficar.TabIndex = 15;
             btnMoficar.Text = "Guardar";
             btnMoficar.UseVisualStyleBackColor = true;
@@ -165,25 +165,25 @@
             // cbDuenio
             // 
             cbDuenio.FormattingEnabled = true;
-            cbDuenio.Location = new Point(210, 152);
+            cbDuenio.Location = new Point(196, 172);
             cbDuenio.Name = "cbDuenio";
-            cbDuenio.Size = new Size(121, 23);
+            cbDuenio.Size = new Size(152, 25);
             cbDuenio.TabIndex = 29;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(145, 155);
+            label1.Location = new Point(145, 176);
             label1.Name = "label1";
-            label1.Size = new Size(45, 15);
+            label1.Size = new Size(49, 17);
             label1.TabIndex = 30;
             label1.Text = "Dueño:";
             // 
             // frmNuevoConductor
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(514, 261);
+            ClientSize = new Size(514, 296);
             Controls.Add(label1);
             Controls.Add(cbDuenio);
             Controls.Add(txtAcoplado);
@@ -200,8 +200,9 @@
             Controls.Add(label12);
             Controls.Add(btnSalir);
             Controls.Add(btnMoficar);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "frmNuevoConductor";
-            Text = "frmNuevoConductor";
+            Text = "Crear Conductor";
             ResumeLayout(false);
             PerformLayout();
         }

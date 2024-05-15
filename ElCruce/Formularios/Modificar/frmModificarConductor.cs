@@ -1,13 +1,5 @@
 ﻿using ElCruce.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ElCruce.Formularios.Modificar
 {
@@ -33,6 +25,9 @@ namespace ElCruce.Formularios.Modificar
                     txtPatente.Text = row["Patente"].ToString();
                     txtChasis.Text = row["Chasis"].ToString();
                     txtAcoplado.Text = row["Acoplado"].ToString();
+                    _truckOwnerId = Convert.ToInt32(row["IDDueño"]);
+
+                    cbDuenio.SelectedValue = _truckOwnerId;
                 }
             }
         }

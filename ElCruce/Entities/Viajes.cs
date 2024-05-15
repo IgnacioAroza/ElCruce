@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElCruce.Entities
 {
@@ -147,13 +142,13 @@ namespace ElCruce.Entities
                 };
                 return BaseDatos.Buscar(consulta, parametros);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error al buscar por Id el viaje", ex.Message);
                 return null;
             }
         }
-        
+
         public static DataTable BuscarXNombreChofer(string name)
         {
             try
